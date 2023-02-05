@@ -1,4 +1,5 @@
-﻿// Напишите программу, реализующую методы формирования массива, заполненного случайными числами и подсчета суммы элементов, стоящих на нечётных позициях
+﻿// Напишите программу, реализующую методы формирования массива, 
+// заполненного случайными числами и подсчета суммы элементов, стоящих на нечётных позициях
 using static System.Console;
 
 int [] ar = new int [4];
@@ -8,17 +9,22 @@ PrintArray(ar);
 
 WriteLine();
 int UnevenSum = 0;
-foreach (int a in ar)
+int In = 0;
+while (In < ar.Length)
 {
-    UnevenSum += a%2==0 ? 1 : 0;
+    if (In%2 > 0)
+    {
+        UnevenSum += ar[In];
+    }
+    In++;
 }
-WriteLine ($"{EvenNum}");
+WriteLine ($"{UnevenSum}");
 
 void FullArray (int [] array) 
 {
     for (int i = 0; i < array.Length; i++) 
     {
-        array[i] = new Random().Next();
+        array[i] = new Random().Next(0, 100);
     }
 }
 void PrintArray (int [] array) 
